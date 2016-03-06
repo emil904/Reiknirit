@@ -1,6 +1,21 @@
 import timeit
+import random
 
-array=[54,26,93,17,77,31,44,55,20]
+#array numer 1 = 1000 tolur a milli 1 og 10000
+array=[]
+for i in range (1000):
+    array.append(random.randrange(1,10000))
+
+#array numer 2  = 100 tolur a milli 1 og 10000
+array2=[]
+for i in range (100):
+    array2.append(random.randrange(1,10000))
+
+#array numer 3 = 10000 tolur a milli 1 og 10000
+array3=[]
+for i in range (10000):
+    array3.append(random.randrange(1,10000))
+
 def quickSort(list):
     less = []
     equal = []
@@ -18,4 +33,6 @@ def quickSort(list):
         return quickSort(less)+equal+quickSort(greater)
     else: return list
 
-print(quickSort(array))
+print(timeit.timeit(str(quickSort(array))))
+print(timeit.timeit(str(quickSort(array2))))
+print(timeit.timeit(str(quickSort(array3))))
